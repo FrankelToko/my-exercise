@@ -2,36 +2,35 @@
             
             
 
-            const randomNumber = (num) => {
-                const randomNum = Math.floor(Math.random() * 10) + 1;
+            const compareRandomNumber = (userNumber) => {
+                let Min = 1;
+                let Max = 10;
+                const generatedNumber = Math.floor(Math.random() * Max) + Min;
                 
-                if (randomNum === num) {
+                if (generatedNumber === userNumber) {
                   console.log("Good Work");
                 } else {
                   console.log("Non apparié");
                 }
-                console.log(`le nombre approprié était : ${randomNum}`);
+                return generatedNumber;
               };
               
-              randomNumber(5);
 
 
 
 // -------exercice 2 : determiner le numbre de jour restant pour la fête de Noel-----
 
-    const noel = (dateStr) => {
-      const dateUser = new Date(dateStr);
+    const nombreJourRestantNoel = (dateString) => {
+      const dateUser = new Date(dateString);
         
       if (isNaN(dateUser)) {
-        console.log(" La date entrée est invalide");
-     
+        return " La date entrée est invalide";
       }
       
       let annee = dateUser.getFullYear(); 
       let dateNoel = new Date(annee, 11, 25); 
 
-      if (dateUser > dateNoel) {
-        console.log(" Noël est déjà passé cette année !");   
+      if (dateUser > dateNoel) { 
         annee = annee + 1;
         dateNoel = new Date(annee, 11, 25);
       }
@@ -40,34 +39,29 @@
       const joursRestants = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
     
       if (joursRestants > 0) {
-        console.log(` Il reste ${joursRestants} jours avant Noël à partir du ${dateUser.toLocaleDateString()}.`);
-      } else if (joursRestants === 0) {
-        console.log("C'est aujourd'hui Noël");
-      }
-      else if(joursRestants){
+        return `${joursRestants}, ${dateUser.toLocaleDateString()}`;
 
+      } else if (joursRestants === 0) {
+        return "C'est aujourd'hui Noël";
       }
+     return joursRestants;
     };
-    noel("2025-00-00"); 
-    noel("2025-12-24");
+    
 
 
 
 // -------------Exercice 3 : divition et produit de deux nombres passé en paramètre--------------
 
-        let number = (a, b) =>{
-          let div = a / b;
-          console.log("la division est égale à : ", div);
+        let operatorNumber = (a, b) =>{
+          let division = a / b;
           let produit = a * b ;
-          console.log("le produit est égale à : ", produit);
+         return {division: division, produit: produit};
         };
-
-        number(4, 5);
     
       
 // -------Exercice 4: la plus longue chaine de caratère d'un tableau ------------------------
 
-                const chaine  = (tableau) => {
+                const plusLongueChaine  = (tableau) => {
                   if(tableau.length === 0) return "";
                   let plusLong = tableau[0];
                   for(let i = 1; tableau.length > i; i++){
@@ -77,8 +71,7 @@
                   }
                   return plusLong;
                 };
-                const mots = ["chat", "chocolat", "voiture", "hippopotame", "chien"];
-                console.log("La chaîne la plus longue est :", chaine(mots));
+                
 
 
 // -------Exercice 5: plus grand nombre paire d'un ensemble d'entier ---------------
@@ -97,38 +90,33 @@
           return maxPair;
         };
 
-          const nombres = [1, 2, 7, 8, 10, 4, 26];
-          console.log("Le plus grand entier pair :", plusGrandPair(nombres));
 
 
 // -------Exercice 6 : retirer les caratère qui se repète dans une chaine ------------------------
 
-        const remove = (str) => {
-          const caract = str.split("");
-          console.log(caract);
-          const unique = caract.filter(char => { 
-          return caract.indexOf(char)===caract.lastIndexOf(char);
+        const removeChar = (chaine) => {
+          const caractereDecompser = chaine.split("");
+         
+          const unique = caractereDecompser.filter(char => { 
+          return caractereDecompser.indexOf(char)===caract.lastIndexOf(char);
           
           });
           return unique.join("");
         };
       
-        const texte = "javascript";
-        console.log("Résultat :", remove(texte)); 
+    
 
 
 // -------Exercice 6 : somme des cube partant de 1 jusqu'au nombre -------
 
-                let number = (num) => {
-                  let sum = 0;
+                let sommeDesCube = (Nombre) => {
+                  let somme = 0;
                   for(let i=1; num >= i; i++){
-                    sum = sum + i*i*i;
+                    somme = somme + i*i*i;
                   }
-                  return sum;
+                  return somme;
                 };
 
-
-                console.log(number(5));
 
 
 // -------Exercice 8 : comparaison de deux Objets------------------------
@@ -142,42 +130,26 @@
                         return true;
                 };
 
-                const a = {nom: "Frankel", age: 22};
-
-                const b = {age : 22};
-
-                console.log(compareObjet(a,b));
-                console.log(compareObjet(b,a));
-
 
 // -------Exercice 9 : supprimer du tableau les elements qui se repète-----------------------
 
 
-                const filterTab = (tab, ...valeurSupp) =>{
-                        return tab.filter(element => ! valeurSupp.includes(element));
+                const supprimerElementRepeter = (tableau, ...valeurSupprimer) =>{
+                        return tableau.filter(element => ! valeurSupprimer.includes(element));
                 };
 
-                const tableau = [1, 2, 3, 4, 5, 2, 3];
-                const result = filterTab(tableau, 2, 3);
-                console.log("Resulta", result);
 
 
 // -------Exercice 10 : extraire les elements d'un tableau à partir de leur index------------------------
 
-                const extraire = (tab, index) => {
+                const extraireDansUnTableau = (tab, index) => {
                         return index.map(ind => tab[ind]);
                 };
-
-                let tableau = ["a", "b", "c", "d", "e"];
-                let a = [0, 2, 4];
-
-                const resultat = extraire(tableau, a);
-                console.log("Valeurs extraites :", resultat);
 
 
 // -------Exercice 11 : supprimer la propriété d'un objet -----------------------
 
-                var student = {
+                let student = {
                         name : "David Rayy",
                         sclass : "VI",
                         rollno : 12 };
@@ -201,43 +173,37 @@
                         }
                       }
                       
-                     
-                      const monCylindre = new Cylindre(3, 5); 
-                      console.log("Volume du cylindre :", monCylindre.volume());
 
 
 // -------Exercice 13 : affiche l'heure toute les secondes-----------------------
 
-                      const afficherHeure = () => {
-                        const maintenant = new Date();
+                      const afficherHeureParSeconde = () => {
+                        const dateActuelle = new Date();
                       
-                        let heures = maintenant.getHours().toString().padStart(2, '0');
-                        let minutes = maintenant.getMinutes().toString().padStart(2, '0');
-                        let secondes = maintenant.getSeconds().toString().padStart(2, '0');
-                      
-                        console.log(`${heures}:${minutes}:${secondes}`);
+                        let heures = dateActuelle.getHours().toString().padStart(2, '0');
+                        let minutes = dateActuelle.getMinutes().toString().padStart(2, '0');
+                        let secondes = dateActuelle.getSeconds().toString().padStart(2, '0');
+
+                        const heureFormatee = `${heures}:${minutes}:${secondes}`;
+                        return heureFormatee;
+                        
                       }
                       
                      
-                      setInterval(afficherHeure, 1000);
+                
 
                       
 // -------Exercice 14 : verifie si une chaine est Minuscule-------------------------   
 
-                      function estMinuscule(chaine) {
+                      const chaineMinuscule = (chaine) =>{
                         return chaine === chaine.toLowerCase();
                       }
-                      
-                
-                      console.log(estMinuscule("bonjour")); // true
-                      console.log(estMinuscule("Bonjour")); // false
-                      console.log(estMinuscule("BONJOUR")); // false
 
                       
 // -------Exercice 15 : ecriture d'une fonction avec deux paramètre qui renvoie une promesse------------------------  
 
 
-let  add = (a, b) => {
+let  somme = (a, b) => {
         return new Promise((resolve, reject) => {
           if (a === undefined || b === undefined) {
             reject("Must provide two parameters");
@@ -252,42 +218,35 @@ let  add = (a, b) => {
 
 // -------implementation de la methode forEach------------
 
-    let myForEach = (array, al) => {
+    let myForEach = (array, callback) => {
         const resultat = [];
         for(let i=0; array.length > i; i++){
-            al(array[i]);
+           resultat = callback(array[i]);
         }
+return resultat;
     }
-
-    myForEach([1, 2, 8, 6], (el) => console.log(el));
 
 
 // ----------- implémentation de la méthode map()---------------
 
-let myMap = (array, cbk) =>{
+let myMap = (array, callback) =>{
     const result = [];
     for(let i = 0; array.length > i; i++){
-        result.push(cbk(array[i]));
+        result.push(callback(array[i]));
     }
     return result;
 }
 
-const double = myMap([1, 2, 4] , (l) => l*2);
-console.log(double);
-
-
 
 // ------implementation de la methode filter()-------------
 
-let myFilter = (array, cbk) => {
+let myFilter = (array, callback) => {
         const result = [];
         for(let i = 0; array.length > i; i++){
-            if(! cbk(array[i])){
+            if(! callback(array[i])){
                 result.push(array[i]);
             }
         }
         return result;
     }
     
-    const double = myFilter([1, 2, 4, 3 , 18], el => el % 2 === 0 );
-    console.log(double);
