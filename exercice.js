@@ -20,31 +20,31 @@
 
 // -------exercice 2 : determiner le numbre de jour restant pour la fête de Noel-----
 
-    const nombreJourRestantNoel = (dateString) => {
+    const getRemainingDays = (dateString) => {
       const dateUser = new Date(dateString);
         
       if (isNaN(dateUser)) {
-        return " La date entrée est invalide";
+        return "not valid";
       }
       
-      let annee = dateUser.getFullYear(); 
-      let dateNoel = new Date(annee, 11, 25); 
+      let year = dateUser.getFullYear(); 
+      let dateChristmas = new Date(year, 11, 25); 
 
-      if (dateUser > dateNoel) { 
-        annee = annee + 1;
-        dateNoel = new Date(annee, 11, 25);
+      if (dateUser > dateChristmas) { 
+        year = year + 1;
+        dateChristmas = new Date(year, 11, 25);
       }
     
-      const diffMs = dateNoel - dateUser;
-      const joursRestants = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+      const diffMs = dateChristmas - dateUser;
+      const remainigDays = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
     
-      if (joursRestants > 0) {
-        return `${joursRestants}, ${dateUser.toLocaleDateString()}`;
+      if (remainigDays > 0) {
+        return `${remainigDays}, ${dateUser.toLocaleDateString()}`;
 
-      } else if (joursRestants === 0) {
-        return "C'est aujourd'hui Noël";
+      } else if (remainigDays === 0) {
+        return "to days is Chris";
       }
-     return joursRestants;
+     return remainigDays;
     };
     
 
@@ -52,24 +52,24 @@
 
 // -------------Exercice 3 : divition et produit de deux nombres passé en paramètre--------------
 
-        let operatorNumber = (a, b) =>{
-          let division = a / b;
-          let produit = a * b ;
-         return {division: division, produit: produit};
+        let divideAndMultiply = (a, b) =>{
+          let divide = a / b;
+          let product = a * b ;
+         return {divide: divide, product: product};
         };
     
       
 // -------Exercice 4: la plus longue chaine de caratère d'un tableau ------------------------
 
-                const plusLongueChaine  = (tableau) => {
-                  if(tableau.length === 0) return "";
-                  let plusLong = tableau[0];
-                  for(let i = 1; tableau.length > i; i++){
-                    if(tableau[i].length > plusLong.length){
-                      plusLong = tableau[i];
+                const maxCharacter  = (array) => {
+                  if(array.length === 0) return "";
+                  let max = array[0];
+                  for(let i = 1; array.length > i; i++){
+                    if(array[i].length > max.length){
+                      max = array[i];
                     }
                   }
-                  return plusLong;
+                  return max;
                 };
                 
 
@@ -77,13 +77,13 @@
 // -------Exercice 5: plus grand nombre paire d'un ensemble d'entier ---------------
 
 
-        const plusGrandPair = (tableau) => {
+        const maxNumberPair = (array) => {
           let maxPair = null;
 
-          for (let i = 0; i < tableau.length; i++) {
-            if (tableau[i] % 2 === 0) {
-              if (maxPair === null || tableau[i] > maxPair) {
-                maxPair = tableau[i];
+          for (let i = 0; i < array.length; i++) {
+            if (array[i] % 2 === 0) {
+              if (maxPair === null || array[i] > maxPair) {
+                maxPair = array[i];
               }
             }
           }
@@ -94,11 +94,11 @@
 
 // -------Exercice 6 : retirer les caratère qui se repète dans une chaine ------------------------
 
-        const removeChar = (chaine) => {
-          const caractereDecompser = chaine.split("");
+        const removeCharacter = (character) => {
+          const decomperCharater = character.split("");
          
-          const unique = caractereDecompser.filter(char => { 
-          return caractereDecompser.indexOf(char)===caract.lastIndexOf(char);
+          const unique = decomperCharater.filter(char => { 
+          return decomperCharater.indexOf(char)===caract.lastIndexOf(char);
           
           });
           return unique.join("");
@@ -109,21 +109,21 @@
 
 // -------Exercice 6 : somme des cube partant de 1 jusqu'au nombre -------
 
-                let sommeDesCube = (Nombre) => {
-                  let somme = 0;
-                  for(let i=1; num >= i; i++){
-                    somme = somme + i*i*i;
+                let sommeDesCube = (number) => {
+                  let sum = 0;
+                  for(let i=1; number >= i; i++){
+                    sum = sum + i*i*i;
                   }
-                  return somme;
+                  return sum;
                 };
 
 
 
 // -------Exercice 8 : comparaison de deux Objets------------------------
 
-                const compareObjet = (objet1, objet2)  => {
+                const compareObjet = (object1, object2)  => {
                         for(let key in objet2){
-                                if(!(key in objet1) || objet1[key]!== objet2[key]){
+                                if(!(key in object1) || object1[key]!== object2[key]){
                                         return false;
                                 }
                         }
@@ -134,16 +134,16 @@
 // -------Exercice 9 : supprimer du tableau les elements qui se repète-----------------------
 
 
-                const supprimerElementRepeter = (tableau, ...valeurSupprimer) =>{
-                        return tableau.filter(element => ! valeurSupprimer.includes(element));
+                const deleteItemRepeter = (array, ...valueDelete) =>{
+                        return array.filter(item => ! valueDelete.includes(item));
                 };
 
 
 
 // -------Exercice 10 : extraire les elements d'un tableau à partir de leur index------------------------
 
-                const extraireDansUnTableau = (tab, index) => {
-                        return index.map(ind => tab[ind]);
+                const getCurrentArray = (array, index) => {
+                        return index.map(ind => array[ind]);
                 };
 
 
@@ -178,14 +178,14 @@
 // -------Exercice 13 : affiche l'heure toute les secondes-----------------------
 
                       const afficherHeureParSeconde = () => {
-                        const dateActuelle = new Date();
+                        const today = new Date();
                       
-                        let heures = dateActuelle.getHours().toString().padStart(2, '0');
-                        let minutes = dateActuelle.getMinutes().toString().padStart(2, '0');
-                        let secondes = dateActuelle.getSeconds().toString().padStart(2, '0');
+                        let hours = today.getHours().toString().padStart(2, '0');
+                        let minutes = today.getMinutes().toString().padStart(2, '0');
+                        let seconds = today.getSeconds().toString().padStart(2, '0');
 
-                        const heureFormatee = `${heures}:${minutes}:${secondes}`;
-                        return heureFormatee;
+                        const hoursFormate = `${hours}:${minutes}:${seconds}`;
+                        return hoursFormate;
                         
                       }
                       
@@ -195,8 +195,8 @@
                       
 // -------Exercice 14 : verifie si une chaine est Minuscule-------------------------   
 
-                      const chaineMinuscule = (chaine) =>{
-                        return chaine === chaine.toLowerCase();
+                      const isLowerCase = (sting) =>{
+                        return sting === sting.toLowerCase();
                       }
 
                       
