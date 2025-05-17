@@ -109,7 +109,7 @@
 
 // -------Exercice 6 : somme des cube partant de 1 jusqu'au nombre -------
 
-                let sommeDesCube = (number) => {
+                let sumOfCube = (number) => {
                   let sum = 0;
                   for(let i=1; number >= i; i++){
                     sum = sum + i*i*i;
@@ -122,7 +122,7 @@
 // -------Exercice 8 : comparaison de deux Objets------------------------
 
                 const compareObjet = (object1, object2)  => {
-                        for(let key in objet2){
+                        for(let key in object2){
                                 if(!(key in object1) || object1[key]!== object2[key]){
                                         return false;
                                 }
@@ -177,7 +177,7 @@
 
 // -------Exercice 13 : affiche l'heure toute les secondes-----------------------
 
-                      const afficherHeureParSeconde = () => {
+                      const displayHeurePerSecond = () => {
                         const today = new Date();
                       
                         let hours = today.getHours().toString().padStart(2, '0');
@@ -203,7 +203,7 @@
 // -------Exercice 15 : ecriture d'une fonction avec deux paramètre qui renvoie une promesse------------------------  
 
 
-let  somme = (a, b) => {
+let  sumOfTwoNumbers = (a, b) => {
         return new Promise((resolve, reject) => {
           if (a === undefined || b === undefined) {
             reject("Must provide two parameters");

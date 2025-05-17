@@ -8,8 +8,8 @@
 
 // -----question 2 : utiliser un spread operator pour determiner la trouver la valeur maximal d'un tableau------------------
 
-        let findMax = (array) => {
-           return Math.max(...array);
+        let findMax = (tableau) => {
+           return Math.max(...tableau);
         }
 
 // ----------question 3 : create a template Literal--------------------
@@ -20,13 +20,13 @@
 
         let totalPrice = price * quantity;
 
-        return `You purchased ${quantity} units of ${product} for ${totalPrice}.`;
+        return `"You purchased ${quantity} units of ${product} for ${totalPrice}."`;
   };       
 
 
 // --------question 4 : combiner deux tableau en utilisant un spread Operator ----------------
    
-        let mergeAndSortArrays = (array1, array2) => {
+        let mergeTowArrays = (array1, array2) => {
                 let mergeArray =[...array1, ...array2];
                 return mergeArray.filter((value, index, newArray) => newArray.indexOf(value) === index)
                                   .sort((a,b) => {
@@ -34,7 +34,7 @@
                                   });
         };
 
-       
+     
 
 
 // --------question 5: Affectation par déstructuration --------------------
@@ -73,20 +73,18 @@ const average = (...arguments) => {
 // --------Question 8: methode map() dans un tableau de chaine caractère----------
 
 
-const arrayChar = (character) => {
+const arrayOfCharacter = (character) => {
        return  character.map(word =>
                 word.split("").reverse().join(""));
         };
 
-// -------Question 9 : methode filter() dans un tableau d'objet pour selectionner les livre de plus de 300 pages ------------------
+// -------Question 9 : methode filter() dans un tableau d'objet ------------------
 
 
 
-const arrayObjetBooks = (books) =>{
-        return  books.filter(book => book.page > 300);
+const arrayObjectBooks = (Books) =>{
+        return  Books.filter(book => book.page > 300);
 }
-
-
 
 // --------qustion 10 :  promesse 
 
