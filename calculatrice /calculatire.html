@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Calculatrice</title>
+</head>
+<body class="flex items-center justify-center bg-gradient-to-br from-pink-700 to-blue-900 min-h-screen">
+
+  <div class="bg-black rounded-3xl p-6 shadow-2xl w-[300px]">
+
+  
+    <div class="text-white text-right text-4xl mb-6 pr-2" id="display">0</div>
+
+   
+    <div class="grid grid-cols-4 gap-3">
+
+     
+      <button class="bg-red-700 text-white rounded-full h-14 w-14 text-lg flex items-center justify-center hover:bg-red-600 transition" onclick="clearDisplay()">C</button>
+      <button class="bg-purple-800 text-white rounded-full h-14 w-14 text-lg flex items-center justify-center hover:bg-purple-700 transition" onclick="append('+')">+</button>
+      <button class="bg-purple-800 text-white rounded-full h-14 w-14 text-lg flex items-center justify-center hover:bg-purple-700 transition" onclick="append('x')">×</button>
+      <button class="bg-purple-800 text-white rounded-full h-14 w-14 text-lg flex items-center justify-center hover:bg-purple-700 transition" onclick="backspace()">&lt;</button>
+
+    
+      <button class="bg-gray-800 text-white rounded-full h-14 w-14 text-lg flex items-center justify-center hover:bg-gray-700 transition" onclick="append('7')">7</button>
+      <button class="bg-gray-800 text-white rounded-full h-14 w-14 text-lg flex items-center justify-center hover:bg-gray-700 transition" onclick="append('8')">8</button>
+      <button class="bg-gray-800 text-white rounded-full h-14 w-14 text-lg flex items-center justify-center hover:bg-gray-700 transition" onclick="append('9')">9</button>
+      <button class="bg-purple-800 text-white rounded-full h-14 w-14 text-lg flex items-center justify-center hover:bg-purple-700 transition" onclick="append('-')">−</button>
+
+   
+      <button class="bg-gray-800 text-white rounded-full h-14 w-14 text-lg flex items-center justify-center hover:bg-gray-700 transition" onclick="append('4')">4</button>
+      <button class="bg-gray-800 text-white rounded-full h-14 w-14 text-lg flex items-center justify-center hover:bg-gray-700 transition" onclick="append('5')">5</button>
+      <button class="bg-gray-800 text-white rounded-full h-14 w-14 text-lg flex items-center justify-center hover:bg-gray-700 transition" onclick="append('6')">6</button>
+      <button class="bg-purple-800 text-white rounded-full h-14 w-14 text-lg flex items-center justify-center hover:bg-purple-700 transition" onclick="append('+')">+</button>
+
+     
+      <button class="bg-gray-800 text-white rounded-full h-14 w-14 text-lg flex items-center justify-center hover:bg-gray-700 transition" onclick="append('1')">1</button>
+      <button class="bg-gray-800 text-white rounded-full h-14 w-14 text-lg flex items-center justify-center hover:bg-gray-700 transition" onclick="append('2')">2</button>
+      <button class="bg-gray-800 text-white rounded-full h-14 w-14 text-lg flex items-center justify-center hover:bg-gray-700 transition" onclick="append('3')">3</button>
+      <button class="bg-green-700 text-white rounded-2xl h-full text-lg flex items-center justify-center hover:bg-green-600 transition row-span-2" onclick="calculate()">=</button>
+
+    
+      <button class="bg-gray-800 text-white rounded-full h-14 w-14 text-lg flex items-center justify-center hover:bg-gray-700 transition" onclick="append('(')">(</button>
+      <button class="bg-gray-800 text-white rounded-full h-14 w-14 text-lg flex items-center justify-center hover:bg-gray-700 transition" onclick="append('0')">0</button>
+      <button class="bg-gray-800 text-white rounded-full h-14 w-14 text-lg flex items-center justify-center hover:bg-gray-700 transition" onclick="append(')')">)</button>
+    </div>
+  </div>
+
+  <script src="calculatrice.js"></script>
+</body>
+</html>
